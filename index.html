@@ -1,0 +1,197 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/67489fa5ed.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<title>Quiz Form</title>
+
+	<style>
+
+		.correct {
+			color: #009900;
+			font-size: 20px;
+		}
+
+		.wrong {
+			color: #990000;
+			font-size: 20px;
+		}
+
+		body {
+			background-color: #0c1514;
+		}
+
+		h1 {
+			color: #63c5bc;
+			text-align: center;
+			font-size: 48px;
+			padding-top: 30px;
+		}
+
+		h2 {
+			color: #88449a;
+			text-align: center;
+			font-size: 22px;
+			padding: 5px 0px 25px 0px;
+		}
+
+		p {
+			color: #fff;
+		}
+
+		.btn-info {
+			background-color: #88449a;
+			border-color: #88449a;
+		}
+
+		.btn-info:hover { 
+			background-color: #777;
+			color: #fff;
+			border-color: #777;
+		}
+
+		.btn-secondary {
+			background-color: #63c5bc;
+			border-color: #63c5bc;
+		}
+
+		.btn-secondary:hover {
+			background-color: #777;
+			color: #fff;
+			border-color: #777;
+		}
+
+	
+
+	</style>
+
+</head>
+<body>
+
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+
+				<h1>Geography Quiz</h1>
+
+				<h2>5 Questions About Geography</h2>
+
+				<form>
+
+					<p>
+				<label class="form-label">1. What is the world's longest river?</label>		
+				<input class="form-control" type="text" id="answer1" placeholder="Type Your Answer...">
+				<div id="grade1"></div>
+			</p>
+
+		<p>
+			<label class="form-label">2. What is the world's largest ocean?</label>
+			<input class="form-control" type="text" id="answer2" placeholder="Type Your Answer...">
+			<div id="grade2"></div>
+		</p>
+
+		<p>
+			<label class="form-label">3. What is the capital city of Spain?</label>			
+			<input class="form-control" type="text" id="answer3" placeholder="Type Your Answer...">
+			<div id="grade3"></div>
+		</p>
+
+		<p>
+			<label class="form-label">4. Which is the only U.S. state to begin with the letter 'p'?</label>			
+			<input class="form-control" type="text" id="answer4" placeholder="Type Your Answer...">
+			<div id="grade4"></div>
+		</p>
+
+		<p>
+			<label class="form-label">	5. What is Earth's largest continent?</label>			
+			<input class="form-control" type="text" id="answer5" placeholder="Type Your Answer...">
+			<div id="grade5"></div>
+			</p>
+
+			</form>
+
+		<p>
+
+			<button id="checkAnswers" class="btn btn-info">Check Answers</button>
+
+			<button id="resetForm" class="btn btn-secondary">Restart</button>
+		</p>
+
+			</div>
+			
+
+		</div>
+
+
+	</div>
+
+	<script>
+		
+	document.getElementById("checkAnswers").addEventListener('click', checkAnswer);
+	document.getElementById("resetForm").addEventListener('click', resetForm);
+
+	function checkAnswer() {
+		let answers = ['Nile', 'Pacific', 'Madrid', 'Pennsylvania', 'Asia'];
+
+		for (var i = 0; i < answers.length; i++) {
+
+		let fieldId = i + 1;	
+
+		let answer = document.getElementById('answer' + fieldId).value;
+		//console.log(answer1);
+		let grade = document.getElementById('grade' + fieldId);
+		
+		if (answer == answers[i]) {
+			//it's right
+			//alert('correct');
+
+			//<i class="fas fa-thumbs-up"></i>
+
+			grade.innerHTML = '<i class="fas fa-check correct"></i>';
+
+		}
+		else {
+			// it's wrong
+			//alert('wrong');
+
+			//<i class="fas fa-thumbs-down"></i>
+			grade.innerHTML ='<i class="fas fa-times wrong"></i>';
+			}
+		}
+
+	}
+
+	function resetForm() {
+
+		alert('Better luck next time!');
+
+		document.getElementById('answer1').value = '';
+		document.getElementById('grade1').innerHTML = '';	
+
+		document.getElementById('answer2').value = '';
+		document.getElementById('grade2').innerHTML = '';
+
+		document.getElementById('answer3').value = '';
+		document.getElementById('grade3').innerHTML = '';
+
+		document.getElementById('answer4').value = '';
+		document.getElementById('grade4').innerHTML = '';
+
+		document.getElementById('answer5').value = '';
+		document.getElementById('grade5').innerHTML = '';
+
+		document.getElementById('answer6').value = '';
+		document.getElementById('grade6').innerHTML = '';
+
+	}
+
+
+	</script>
+
+
+</body>
+</html>
